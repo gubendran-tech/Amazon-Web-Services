@@ -1,0 +1,1 @@
+1. You can stop and start instances based on the configured schedule and workflow

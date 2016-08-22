@@ -1,0 +1,6 @@
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
+MAILTO=root
+HOME=/
+*/5 * * * * root /opt/aws-scripts-mon/mon-put-instance-data.pl --mem-util --disk-space-util --disk-path=/ --from-cron
+30 0 * * * root /opt/scripts/repoBackupS3.sh >> /tmp/repo_error.log  2>&1

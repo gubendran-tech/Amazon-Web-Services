@@ -1,0 +1,7 @@
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/
+*/5 * * * * root /opt/aws-scripts-mon/mon-put-instance-data.pl --mem-util --disk-space-util --disk-path=/ --monitor-pid=apache --from-cron
+*/5 * * * * root /opt/aws-scripts-mon/mon-put-instance-data.pl --monitor-pid=tomcat --from-cron
+

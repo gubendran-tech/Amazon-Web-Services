@@ -1,0 +1,17 @@
+
+#aws ec2 run-instances --image-id ami-2cbd724c --count 1 --instance-type t2.medium --key-name imagestaging --security-group-ids sg-9824a1fe --subnet-id subnet-a2db48d4 --private-ip-address 10.0.10.7 --user-data file://installServiceMSWM.sh
+
+# Run instance -> create and run instance
+aws ec2 run-instances --image-id ami-2cbd724c --count 1 --instance-type t2.medium --key-name imagestaging --security-group-ids sg-9824a1fe --subnet-id subnet-a2db48d4 --private-ip-address 10.0.10.7
+
+# Run instance => api1
+aws ec2 run-instances --image-id ami-24e12e44 --count 1 --instance-type t2.small --key-name imagestaging --security-group-ids sg-7efd5319 --subnet-id subnet-9250a4f6 --private-ip-address 10.0.20.5
+
+#www2
+aws ec2 run-instances --image-id ami-f6498696 --count 1 --instance-type t2.medium --key-name imagestaging --security-group-ids sg-b16593de --subnet-id subnet-4374dd1b --private-ip-address 10.0.11.4
+
+# Upload files into s3 bucket
+aws s3 cp /opt/aws-s3/installServiceMSWM.sh s3://kb-sck-softwares/LaunchConfigurationScripts/installServiceMSWM.sh
+
+# Download files from s3 bucket
+aws s3 cp s3://kb-sck-softwares/LaunchConfigurationScripts/installServiceMSWM.sh /opt/aws-s3/installServiceMSWM.sh

@@ -1,0 +1,3 @@
+1. Download or Upload windows : very nice tool to connect to s3 : http://s3browser.com/ (Download or upload files in windows)
+2. LifeCycle Rule : Every s3 bucket you can have LifeCycle rule to cleanup files in regular interval. Every folder should have separate rule and regexp may not work.
+3. Policy : You can lock s3 bucket policy using IAM Users and many policy restriction allowed

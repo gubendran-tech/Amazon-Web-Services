@@ -1,0 +1,57 @@
+Steps to install NTP Server : 
+
+Install NTP
+------------
+yum -y install ntp
+
+Update ntp configuration
+--------------------------
+vi /etc/ntp.conf
+
+Enable and update below
+-----------------------
+# add the network range you allow to receive requests
+restrict 75.127.245.90 mask 255.255.255.0 nomodify notrap
+
+Below is for prod
+------------------
+#exchange time with everybody but dont allow configuration (noquery to forbid query)
+restrict -4 default kod notrap nomodify nopeer
+restrict -6 default kod notrap nomodify nopeer
+
+# Change servers for Synchronization to your timezone
+# Please consider joining the pool (http://www.pool.ntp.org/join.html).
+server 0.pool.ntp.org iburst
+server 1.pool.ntp.org iburst
+server 2.pool.ntp.org iburst
+server 3.pool.ntp.org iburst
+
+#Enable local clock as backup on failure
+server  127.127.1.0 # local clock
+
+# Start the ntpd server
+/etc/init.d/ntpd start
+
+# ntpd startup
+chkconfig ntpd on
+
+# Enable 123 port 
+iptables -I INPUT 5 -p udp -m state --state NEW -m udp --dport 123 -j ACCEPT
+
+#Restart iptables
+service iptables restart
+
+# verify it works
+ntpq -p
+or
+netstat -tulpn
+
+AWS.
+----
+Make sure in security group you add inbound port "ALL UDP" Anywhere 0.0.0.0/0 or as required
+
+Steps to sync ntp client with ntp server (Your centOS)
+-------------------------------------------------------
+# -u Direct ntpdate to use an unprivileged port for outgoing  packets.
+ntpdate -u 54.208.38.161<your server ip>
+

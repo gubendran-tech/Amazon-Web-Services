@@ -1,0 +1,68 @@
+CloudWatch - Custom Scripts
+---------------------------
+Follow this instructions and install cloudWatch client in each instance. So, this will send metrics to cloudWatch.
+
+Reference : http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/mon-scripts.html
+
+How To Change Timezone on a CentOS 6 and 7 from default Timezone
+----------------------------------------------------------------
+cp /etc/localtime /root/old.timezone
+rm /etc/localtime
+ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
+date
+
+Install NTP Service to sync the time between internet and your instance
+------------------------------------------------------------------------
+sudo yum install ntp
+chkconfig ntpd on
+ntpdate pool.ntp.org
+/etc/init.d/ntpd start
+
+How to load driver (Below command will load and tell the dependency)
+---------------------------------------------------------------------
+ldd <driver_name.so>
+
+Update your yum repository to latest and group install development tools
+-------------------------------------------------------------------------
+http://www.cyberciti.biz/faq/centos-linux-install-gcc-c-c-compiler/ ('C' Compiler needed for some perl modules)
+yum update -y
+yum groupinstall 'Development Tools' -y
+
+Install Perl and dependent modules to run CloudWatchClient  perl program
+---------------------------------------------------------------------------
+sudo yum install perl -y
+sudo yum install perl-Switch perl-DateTime perl-Sys-Syslog perl-LWP-Protocol-https perl-Digest-SHA -y
+sudo yum install zip unzip -y
+
+To install Perl-LWP-Protocol-https you need below openssl-devel to be installed
+--------------------------------------------------------------------------------
+yum install openssl-devel -y 
+
+Install cpan as you need to install perl modules as centOS6 doesn't have rpm's. 
+------------------------------------------------------------------------------
+yum install cpan -y
+
+Login into cpan to install perl libraries through perl repository. As this packages not found for centOS6.
+----------------------------------------------------------------------------------------------------------
+PERL_MM_USE_DEFAULT=1 /usr/bin/perl -MCPAN -e 'install Sys::Syslog'
+PERL_MM_USE_DEFAULT=1 /usr/bin/perl -MCPAN -e 'install Switch'
+PERL_MM_USE_DEFAULT=1 /usr/bin/perl -MCPAN -e 'install Net::SSLeay'
+PERL_MM_USE_DEFAULT=1 /usr/bin/perl -MCPAN -e 'install LWP::Protocol::https'
+
+To download, install, and configure the script
+-----------------------------------------------
+cd /opt
+curl http://aws-cloudwatch.s3.amazonaws.com/downloads/CloudWatchMonitoringScripts-1.2.1.zip -O
+unzip CloudWatchMonitoringScripts-1.2.1.zip
+rm -fr CloudWatchMonitoringScripts-1.2.1.zip
+cd aws-scripts-mon
+
+Update your AWSAccessKeyId and AWSSecretKey
+--------------------------------------------
+cp awscreds.template awscreds.conf
+curl https://s3-us-west-2.amazonaws.com/kb-sck-softwares/CloudWatchClient/awscreds.conf -O 
+
+Install Crontab if missing
+---------------------------
+cd /etc/cron.d
+curl https://s3-us-west-2.amazonaws.com/kb-sck-softwares/CloudWatchClient/cloudWatch -O
