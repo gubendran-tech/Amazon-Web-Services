@@ -1,0 +1,426 @@
+{
+    "cases": [
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": []
+            },
+            "ccEmailAddresses": [
+                "tjamilkowsky@kitchenbrains.com"
+            ],
+            "timeCreated": "2014-06-16T13:31:33.000Z",
+            "caseId": "case-659149615316-muen-2014-37d5744a298fe61f",
+            "severityCode": "low",
+            "language": "en",
+            "categoryCode": "us-sales-tax",
+            "serviceCode": "billing",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "210327221",
+            "subject": "How to apply for credit for US tax charged before uploading tax certificate"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": []
+            },
+            "ccEmailAddresses": [
+                "tjamilkowski@kitchenbrains.com",
+                "tjamilkowsky@kitchenbrains.com"
+            ],
+            "timeCreated": "2014-08-19T16:20:29.000Z",
+            "caseId": "case-659149615316-muen-2014-8393bba59732a8e",
+            "severityCode": "urgent",
+            "language": "en",
+            "categoryCode": "instance-issue",
+            "serviceCode": "amazon-elastic-compute-cloud-linux",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "238297721",
+            "subject": "Chat: Updated Kernel, reboot, instance unbootable due to kernel panic"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": [
+                    {
+                        "body": "Please let us know if we resolved your issue: \n(If you will connect by federation, log in before following the link.)\n\nIf yes, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=yes&case=1608902871\nIf no, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=no&case=1608902871\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-228316aedde196a5",
+                        "timeCreated": "2016-01-05T14:38:24.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hello,\n\nSince the topic no longer exists, (it appears to have been deleted) the notifications must have stopped. Its possible that your mail server was queuing the messages up and delivering them with delay. We should no longer be sending emails to you from the topics arn:aws:sns:us-east-1:659149615316:NotifyMe which I cannot find anymore. \n\nPlease let me know if you are still getting emails. Please also check the timestamps in the mail headers.\n\nBest regards,\n\nMatt J.\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-228316aedde196a5",
+                        "timeCreated": "2016-01-04T22:49:35.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hi,\nI had enabled SES notifications to email me when I have bounce issues. This notification has since been spamming my email address, scksystems@kitchenbrains.com with notifications every few minutes. I then disabled the notifications, but it seems to have been stuck. \n\nWhen I went into the SNS console, the subscription was marked as deleted but would not delete. I deleted the topic but I am still getting the notification emails. I want to completely remove this SNS subscription as I was only needing the emails for a test, but I can't seem to disable or delete the notifications.\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-228316aedde196a5",
+                        "timeCreated": "2016-01-04T21:52:38.000Z",
+                        "submittedBy": "tjamilkowski (IAM) <itsupport@kitchenbrains.com>"
+                    }
+                ]
+            },
+            "ccEmailAddresses": [
+                "tjamilkowski@kitchenbrains.com"
+            ],
+            "timeCreated": "2016-01-04T21:52:38.000Z",
+            "caseId": "case-659149615316-muen-2016-228316aedde196a5",
+            "severityCode": "normal",
+            "language": "en",
+            "categoryCode": "general-guidance",
+            "serviceCode": "amazon-simple-email-service",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "1608902871",
+            "subject": "Removed SES notifiyme settings for bounced emails, but SNS subscription was not deleted"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": [
+                    {
+                        "body": "\nHello,\n\nWe haven't heard back from you regarding this case. At this time, we're marking this case as Resolved. However, if you're still experiencing issues, we want to hear from you! Please re-open this case for continued support:\n\nhttps://console.aws.amazon.com/support/home?#/case/?caseId=1623983711&displayId=1623983711&language=en\n\nPlease let us know if we resolved your issue: \n(If you will connect by federation, log in before following the link.)\n\nIf yes, click here:\nhttps://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=yes&case=1623983711\nIf no, click here:\nhttps://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=no&case=1623983711\n\nBest regards,\n\nAmazon Web Services\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-8c27f47c6acf26c1",
+                        "timeCreated": "2016-01-22T17:14:12.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "\nHello,\n\nWe haven't heard back from you regarding case 1623983711 for a while. For continued support regarding the same issue, you can contact us any time using the following URL:\nhttps://console.aws.amazon.com/support/home?#/case/?caseId=1623983711&displayId=1623983711&language=en\n\nPlease note that no action is required on your part if you wish this case to be resolved. However, if you want to close this case yourself, you could do so via the Support Center. If we haven't heard back from you within the next 48 hours we will mark the case as Resolved, although you can re-open the case any time using the link above.\n\nBest Regards,\n\nAmazon Web Services\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-8c27f47c6acf26c1",
+                        "timeCreated": "2016-01-20T16:15:39.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hello there,\n\nThis is Enrico from AWS Premium Support, thanks for contacting us,\n\nA quick summary of our chat:\n\nWe did the force stop and made the instance available for a new start.\nJust in case anyway an AMI have been done before contacting us, great initiative, thanks!\n\nWe also waited online to be sure that everything was coming back properly, and we wait for the alarm status to move from \"no data\" to \"OK\"\n\nI hope that the information I provided today will prove itself useful. If you have any additional queries or concerns, please do not hesitate to let me know. I'd be happy to help further!\n\nFeel free to mark the case as solved if you prefer, you can always reopen a case if you think it is required. It might be better if you create a new case instead of using the same if you think the history of the case is not relevant for the issue/question you have, this avoids the engineers from going through the case history and in the end he will able to provide a better support.\n\nBest regards,\n\nEnrico B.\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-8c27f47c6acf26c1",
+                        "timeCreated": "2016-01-17T15:36:32.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "03:11:23 PM Enrico: Hello Sir,\n03:11:27 PM Enrico: Enrico here from AWS Premium Support\n03:11:34 PM Enrico: while I check the case, would you like to tell me your name?\n03:11:44 PM rramalingam: Raghavan\n03:12:01 PM Enrico: Hello Raghavan\n03:12:10 PM Enrico: I see the instance is stuck in stopping right?\n03:12:12 PM Enrico:  i-7ec31f15 ?\n03:12:35 PM rramalingam: Yes need to force stop it as we have taken an AMI image \n03:12:41 PM Enrico: excellent\n03:12:43 PM rramalingam: so no issues in force stop\n03:12:52 PM Enrico: I will do it for you ok?\n03:13:07 PM rramalingam: Sure go ahead\n03:13:25 PM rramalingam: Can't launch the new instance from the AMI as we need the elastic IP released from the current instane\n03:13:55 PM Enrico: Just forced stopped\n03:14:03 PM Enrico: you should see it in your console\n03:14:08 PM Enrico: in maximum 2 minutes normally\n03:14:09 PM rramalingam: Yes my console reflects the same\n03:14:12 PM Enrico: excellent\n03:14:31 PM Enrico: would you need anything else from my side?\n03:14:40 PM Enrico: you prefer to wait until you launch the new instance?\n03:15:01 PM rramalingam: Instance has been marked for retirement if start it again it should move to new layer right ?\n03:15:07 PM Enrico: of course\n03:15:21 PM rramalingam: Can you be online I will start the instance\n03:15:31 PM Enrico: sure no problem\n03:15:45 PM rramalingam: Thanks Will keep you posted once the instance is online\n03:16:03 PM Enrico: ok, I profit to take quickly a glass of water\n03:16:07 PM Enrico: I will be back in 60 seconds\n03:16:46 PM rramalingam: Sure take your time\n03:18:39 PM Enrico: here I am\n03:20:35 PM rramalingam: instance is reachable via ping few mins will login through SSH for further check\n03:21:24 PM Enrico: looks like instance is booting good\n03:21:40 PM Enrico: From the console I see\nCentOS release 6.5 (Final)\nKernel 3.10.36-1.el6.elrepo.x86_64 on an x86_64\n\n03:22:03 PM Enrico: but weird\n03:22:12 PM Enrico: is still the same instance, you did not launch a new one right?\n03:22:21 PM Enrico: you are using the old one, did I understand well?\n03:22:36 PM Enrico: I mean, the ami was only a \"just in case\" right?\n03:22:53 PM rramalingam: Yes first wanted to move the affected instance and try that if it doesn't pass our internal checks we will launch new one using the AMI taken today\n03:22:58 PM Enrico: ok great\n03:23:43 PM rramalingam: All is well at the moment except for the Alarm status can you have a look at it\n03:24:12 PM Enrico: System \t✔ ok as of 2 minutes ago\nReachability \t✔ passed as of 2 minutes ago \n03:24:12 PM Enrico: Instance \t✔ ok as of 2 minutes ago\nReachability \t✔ passed as of 2 minutes ago \n03:24:18 PM Enrico: do you mean the health checks?\n03:24:31 PM rramalingam: Yes\n03:24:44 PM Enrico: they looks good, the web console may still have some cached values\n03:24:55 PM rramalingam: Alarm status says no data\n03:24:55 PM Enrico: let's wait a bit that the cache get invalidated\n03:25:00 PM rramalingam: Sure\n03:26:41 PM Enrico: bonaccor would like to start an AWS support screen sharing session with you. To do so, please click on the link below and follow the online instructions.\n\nhttps://screenshare.amazonaws.com/?ak=74d5a7c17b3c809c21bff98607670b97\n\nAWS screen sharing enables a support representative to simultaneously view all of your screens connected to your computer system in order to best assist you with your support inquiry. Session traffic is fully encrypted to protect your system's data. Once a session has begun, you will be able to end it at any time.\n\n-----\nSincerely,\nAWS Support\n03:26:44 PM Enrico: if you click on the link\n03:26:47 PM Enrico: I will see your display\n03:26:59 PM Enrico: just to be sure we are talking about the same thing :-)\n03:28:07 PM rramalingam: one sec will give screen share\n03:29:35 PM Enrico: ok\n03:30:09 PM Enrico: Great\n03:30:14 PM Enrico: Can I see the alarm you mean?\n03:30:30 PM rramalingam: Sure you have the screen\n03:30:44 PM Enrico: yes I can see\n03:30:48 PM Enrico: a moment\n03:34:36 PM Enrico: bye\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-8c27f47c6acf26c1",
+                        "timeCreated": "2016-01-17T15:06:08.000Z",
+                        "submittedBy": "itsupport@kitchenbrains.com"
+                    },
+                    {
+                        "body": "Hi\n\nWhen tried to stop instance - i-7ec31f15 console shows stopping and it is stuck in there for ever\n\nRaghavan\nInstance ID(s): i-7ec31f15\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-8c27f47c6acf26c1",
+                        "timeCreated": "2016-01-17T15:05:57.000Z",
+                        "submittedBy": "rramalingam (IAM) <itsupport@kitchenbrains.com>"
+                    }
+                ]
+            },
+            "ccEmailAddresses": [
+                "tjamilkowski@kitchenbrains.com"
+            ],
+            "timeCreated": "2016-01-17T15:05:57.000Z",
+            "caseId": "case-659149615316-muen-2016-8c27f47c6acf26c1",
+            "severityCode": "urgent",
+            "language": "en",
+            "categoryCode": "instance-issue",
+            "serviceCode": "amazon-elastic-compute-cloud-linux",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "1623983711",
+            "subject": "Chat: Instance stuck in stopping state"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": [
+                    {
+                        "body": "\nHello,\n\nWe haven't heard back from you regarding this case. At this time, we're marking this case as Resolved. However, if you're still experiencing issues, we want to hear from you! Please re-open this case for continued support:\n\nhttps://console.aws.amazon.com/support/home?#/case/?caseId=1745875701&displayId=1745875701&language=en\n\nPlease let us know if we resolved your issue: \n(If you will connect by federation, log in before following the link.)\n\nIf yes, click here:\nhttps://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=yes&case=1745875701\nIf no, click here:\nhttps://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=no&case=1745875701\n\nBest regards,\n\nAmazon Web Services\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-bf735d46134b4408",
+                        "timeCreated": "2016-05-18T22:11:08.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "\nHello,\n\nWe haven't heard back from you regarding case 1745875701 for a while. For continued support regarding the same issue, you can contact us any time using the following URL:\nhttps://console.aws.amazon.com/support/home?#/case/?caseId=1745875701&displayId=1745875701&language=en\n\nPlease note that no action is required on your part if you wish this case to be resolved. However, if you want to close this case yourself, you could do so via the Support Center. If we haven't heard back from you within the next 48 hours we will mark the case as Resolved, although you can re-open the case any time using the link above.\n\nBest Regards,\n\nAmazon Web Services\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-bf735d46134b4408",
+                        "timeCreated": "2016-05-16T21:16:35.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hi,\n\nI appreciate your patience on the matter. It seems that actually that Elastic IP is attached to a NAT Gateway nat-02e88bebcd383c66c. Once an EIP is associated with a NAT Gateway, it cannot be disassociated. You will have to delete the NAT Gateway in order to reuse that Elastic IP. You could also allocate a new EIP to use for a replacement NAT Gateway, or associate it with your instance. You could also place your instance behind the NAT Gateway so it would use the same EIP when accessing the Internet.\n\nPlease let me know if you have any further issues.\n\nBest regards,\n\nOmar S\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-bf735d46134b4408",
+                        "timeCreated": "2016-05-13T20:24:25.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hi AWS Team,\n\nThis is our production data server. We need to have daily backups. Due to this we couldn't take any backups into our S3 and our SLA is getting breached. Can you take this item as mentioned severity as urgent and address it ASAP ?\n\nThanks.\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-bf735d46134b4408",
+                        "timeCreated": "2016-05-13T19:09:35.000Z",
+                        "submittedBy": "glakshman (IAM) <itsupport@kitchenbrains.com>"
+                    },
+                    {
+                        "body": "Hi Gubs,\n\nI've let the Networking team know about the issue. Hopefully they'll be in touch soon and when they have an update I'll let you know. In the meantime, if you have any further questions or concerns, please let me know and I'll be happy to help.\n\nBest regards,\n\nOmar S\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-bf735d46134b4408",
+                        "timeCreated": "2016-05-13T15:01:42.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    }
+                ],
+                "nextToken": "AwIUvBR8xgc/AqRzxBmKr8Fgw6brUB5rmhox1JUANqnwfQiBpsXYTk8KipV0YDy0MxUL2/LMWJo="
+            },
+            "ccEmailAddresses": [
+                "tjamilkowski@kitchenbrains.com"
+            ],
+            "timeCreated": "2016-05-12T19:16:49.000Z",
+            "caseId": "case-659149615316-muen-2016-bf735d46134b4408",
+            "severityCode": "urgent",
+            "language": "en",
+            "categoryCode": "instance-issue",
+            "serviceCode": "amazon-elastic-compute-cloud-linux",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "1745875701",
+            "subject": "Chat: Elastic IP is not displayed in EC2 Console Details for the instance"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": [
+                    {
+                        "body": "Please let us know if we resolved your issue: \n(If you will connect by federation, log in before following the link.)\n\nIf yes, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=yes&case=1749395891\nIf no, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=no&case=1749395891\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-d7c9d49b617d160a",
+                        "timeCreated": "2016-05-19T20:27:38.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "\nHello,\n\nWe haven't heard back from you regarding case 1749395891 for a while. For continued support regarding the same issue, you can contact us any time using the following URL:\nhttps://console.aws.amazon.com/support/home?#/case/?caseId=1749395891&displayId=1749395891&language=en\n\nPlease note that no action is required on your part if you wish this case to be resolved. However, if you want to close this case yourself, you could do so via the Support Center. If we haven't heard back from you within the next 48 hours we will mark the case as Resolved, although you can re-open the case any time using the link above.\n\nBest Regards,\n\nAmazon Web Services\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-d7c9d49b617d160a",
+                        "timeCreated": "2016-05-19T20:16:21.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hello,\n\nI’m happy to inform you that we've approved and processed your Elastic IPs limit increase request for the US East (Northern Virginia) region, and your new limit is 10. Please keep in mind that it can sometimes take up to 15 minutes for this to propagate and become available for use.\n\nI hope this helps.\n\nBest regards,\n\nEmma D.\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-d7c9d49b617d160a",
+                        "timeCreated": "2016-05-16T19:30:09.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Limit increase request 1\nService: Elastic IPs\nRegion: US East (Northern Virginia)\nLimit name: New VPC Elastic IP Address Limit\nNew limit value: 10\n------------\nUse case description: Hi AWS,\n\nWe would like to increase 5 more Elastic IP's for our US East region VPC. Please increase from 5 to 10.\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-d7c9d49b617d160a",
+                        "timeCreated": "2016-05-16T19:26:41.000Z",
+                        "submittedBy": "glakshman (IAM) <itsupport@kitchenbrains.com>"
+                    }
+                ]
+            },
+            "ccEmailAddresses": [
+                "gubs@jeanmartin.com"
+            ],
+            "timeCreated": "2016-05-16T19:26:41.000Z",
+            "caseId": "case-659149615316-muen-2016-d7c9d49b617d160a",
+            "severityCode": "low",
+            "language": "en",
+            "categoryCode": "elastic-ips",
+            "serviceCode": "service-limit-increase",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "1749395891",
+            "subject": "Limit Increase: Elastic IPs"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": [
+                    {
+                        "body": "\nHello,\n\nWe haven't heard back from you regarding this case. At this time, we're marking this case as Resolved. However, if you're still experiencing issues, we want to hear from you! Please re-open this case for continued support:\n\nhttps://console.aws.amazon.com/support/home?#/case/?caseId=1771693181&displayId=1771693181&language=en\n\nPlease let us know if we resolved your issue: \n(If you will connect by federation, log in before following the link.)\n\nIf yes, click here:\nhttps://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=yes&case=1771693181\nIf no, click here:\nhttps://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=no&case=1771693181\n\nBest regards,\n\nAmazon Web Services\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c747b8f30cea4cb",
+                        "timeCreated": "2016-06-12T19:10:03.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "\nHello,\n\nWe haven't heard back from you regarding case 1771693181 for a while. For continued support regarding the same issue, you can contact us any time using the following URL:\nhttps://console.aws.amazon.com/support/home?#/case/?caseId=1771693181&displayId=1771693181&language=en\n\nPlease note that no action is required on your part if you wish this case to be resolved. However, if you want to close this case yourself, you could do so via the Support Center. If we haven't heard back from you within the next 48 hours we will mark the case as Resolved, although you can re-open the case any time using the link above.\n\nBest Regards,\n\nAmazon Web Services\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c747b8f30cea4cb",
+                        "timeCreated": "2016-06-10T18:17:09.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hello,\n\nI’m happy to inform you that we've approved and processed your Elastic IP limit increase request for the US West (Oregon) region, and your new limit is 10. Please keep in mind that it can sometimes take up to 15 minutes for this to propagate and become available for use.\n\nI hope this helps.\n\nBest regards,\n\nJarrad J.\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c747b8f30cea4cb",
+                        "timeCreated": "2016-06-07T17:30:46.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Limit increase request 1\nService: Elastic IPs\nRegion: US West (Oregon)\nLimit name: New VPC Elastic IP Address Limit\nNew limit value: 10\n------------\nUse case description: Hi AMI Team,\n\nWe would like to increase 5 more Elastic IP's for our US West region VPC. Please increase from 5 to 10.\n\nThanks,\nGubs\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c747b8f30cea4cb",
+                        "timeCreated": "2016-06-07T16:34:08.000Z",
+                        "submittedBy": "glakshman (IAM) <itsupport@kitchenbrains.com>"
+                    }
+                ]
+            },
+            "ccEmailAddresses": [
+                "gubs@jeanmartin.com"
+            ],
+            "timeCreated": "2016-06-07T16:34:07.000Z",
+            "caseId": "case-659149615316-muen-2016-6c747b8f30cea4cb",
+            "severityCode": "low",
+            "language": "en",
+            "categoryCode": "elastic-ips",
+            "serviceCode": "service-limit-increase",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "1771693181",
+            "subject": "Limit Increase: Elastic IPs"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": [
+                    {
+                        "body": "Please let us know if we resolved your issue: \n(If you will connect by federation, log in before following the link.)\n\nIf yes, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=yes&case=1773793651\nIf no, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=no&case=1773793651\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-48d7ed5c935cb9fb",
+                        "timeCreated": "2016-06-09T19:50:04.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hello Nick!\n\nIt was a pleasure speaking with you today!\n \nPer our conversation, I did leave a voice mail so if you locate that feel free to disregard the remainder of this email and submit your MFA request again. We will call you back in 15 minutes to assist with removing the MFA!\n\nIf you do not locate the voice mail I left, in order to proceed with your request to remove the MFA token from the account, please provide us with the following documents, in English:\n\n1) A completed, signed, and notarized Identity Verification Form and Affidavit, which can be downloaded online at the following link:\n\nhttps://s3.amazonaws.com/AWSCS_CustomerForms/IdentityVerificationFormAffidavit.doc\n\n2) A photocopy of the AWS account owner’s primary proof of identification.\n\n3) A photocopy of the AWS account owner’s proof of address matching the address on file.\n\nCarefully review the following requirements for these photocopies so that we can complete our investigations as soon as possible.\n\nhttps://s3.amazonaws.com/AWSCS_CustomerForms/Required_Documentation_for_MFA_Removal.pdf\n\nPlease scan all forms and photocopies and attach them as digital files to your email response to aws@amazon.com. All personal information not related to the account should be redacted, such as social security numbers and bank accounts.\n\nIf you have any questions, please contact us by responding directly to this email, and we'll get back to you as soon as possible.\nHave a great day!\n\nBest regards,\n\nRachael H.\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-48d7ed5c935cb9fb",
+                        "timeCreated": "2016-06-09T18:35:24.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hello Nick,\n\nThank you for your time on call today. You had issues with the root account being locked since it was assigned to an old employee.\n\nThe steps to resolve this would be:\n\n1) Click the forgot my password for the root account and we would send a link to reset it to the email registered: itsupport@kitchenbrains.com \n\nHowever, in your case this root account also has MFA enabled so even if you reset the password and use the new one, the next screen will prompt for the MFA token code which I assume you do not have.\n\nSo the best solution for you would be step two:\n\nWhat If an MFA Device Is Lost or Stops Working? Please refer to:\n\n[+] http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_lost-or-broken.html\n\nOnce you get this done you can change the root credentials anytime using the steps in link below (there are edit options for name and email address too):\n\n[+] http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_change-root.html\n\nHope this was helpful. Please do let me know if you have any further questions regarding this. I would be happy to assist you.\n\nBest regards,\n\nSREENATH D.\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-48d7ed5c935cb9fb",
+                        "timeCreated": "2016-06-09T16:19:09.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hello,\n\nMy name is Nick Nocerino and I am the CTO for Kitchen Brains.  I need to have our root account information reset as the individual that set it up is no longer with the company.  Can someone reach out to me to get this done.  \n\nThanks,\nNick Nocerino\nChief Technology Officer – IoT Solutions\n905 Honeyspot Road\nStratford, CT 06615\nPhone: +1.203.380.3523\nMobile +1.203.710.2022\nwww.kitchenbrains.com\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-48d7ed5c935cb9fb",
+                        "timeCreated": "2016-06-09T12:49:25.000Z",
+                        "submittedBy": "nnocerino (IAM) <itsupport@kitchenbrains.com>"
+                    }
+                ]
+            },
+            "ccEmailAddresses": [
+                "nnocerino@kitchenbrains.com"
+            ],
+            "timeCreated": "2016-06-09T12:49:25.000Z",
+            "caseId": "case-659149615316-muen-2016-48d7ed5c935cb9fb",
+            "severityCode": "high",
+            "language": "en",
+            "categoryCode": "other",
+            "serviceCode": "aws-identity-and-access-management",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "1773793651",
+            "subject": "Call: Reset Root Account Info"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": [
+                    {
+                        "body": "Please let us know if we resolved your issue: \n(If you will connect by federation, log in before following the link.)\n\nIf yes, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=yes&case=1778379521\nIf no, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=no&case=1778379521\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c80a4658c5efa65",
+                        "timeCreated": "2016-06-16T19:14:05.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Thanks Meenakshi. By referring this below article our issue got resolved. \nhttps://aws.amazon.com/premiumsupport/knowledge-center/rds-mysql-functions/\n\nThanks,\nGubendran\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c80a4658c5efa65",
+                        "timeCreated": "2016-06-14T19:52:47.000Z",
+                        "submittedBy": "glakshman (IAM) <itsupport@kitchenbrains.com>"
+                    },
+                    {
+                        "body": "Hello Gubs, \n\nThank you for contacting AWS Support. \n\nI understand that you were receiving errors when you were trying to connect to the RDS instance using MicroStrategy ODBC. Access denied for the user using password no possible not the error related to the permissions. Have you tried to reset the master user password to connect to the instance again? I do not see any action taken from Amazon to resolve the issue, it should have been some change from your end.\n\nTo reset the master user password your RDS account, login into your RDS account. Select the instance that you want to modify and click the drop-down menu bar that says 'Instance Actions' and in that drop-down list click 'Modify'. On the next page you would set the password under the Settings 'New Master Password' and select the 'Apply Immediately' check-box and click Continue.\n[+]http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.MySQL.html\n\nAs RDS is a managed service, you would not be able to Grant all privileges on all the databases and that is the reason why you received the 'Error Code: 1045 Access denied for user 'msdataadmin'@'%' (using password: YES)'. The documentation below lists all the privileges that are assigned to default master user in Maria DB Instance. \n[+]http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.MasterAccounts.html\n\nThe default master user 'msdataadmin' for 'msmetadata' DB instance should have the privileges you mentioned in the correspondence that are required for the user. If you are unable to create to trigger/any other issues with the database, to troubleshoot the issue further please provide the following information:\n\nConnect to the DB instance and run the following commands:\nmysql> select user, host from mysql.user;\nmysql> show grants for msdataadmin\\G\n\nAlso, you would be able to create a user that has same privileges as your current master user: \n\nmysql> CREATE USER 'mynewuser'@'%' IDENTIFIED BY 'password'; \n\nmysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'mynewuser'@'%' WITH GRANT OPTION;\n\nmysql> flush privileges;\n\nI will look forward for you response.\n\nBest regards,\n\nMeenakshi T.\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c80a4658c5efa65",
+                        "timeCreated": "2016-06-14T18:15:45.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Currently, ODBC has connectivity to the mariaDB. I am not sure if someone from amazon worked on it. But, We don't have create permission for trigger for the user \"msdataadmin\" for the db \"msmetadata\". We need below permission for the user. Can you please provide ?\n\nDatabase Object Type of Permissions Required\nTables Select, Insert, Update, Create, Drop, Delete\nIndexes Create, Drop\nTriggers Create, Drop\nFunctions Create, Execute\nPackages Create\nProcedures Create, Execute\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c80a4658c5efa65",
+                        "timeCreated": "2016-06-14T15:32:53.000Z",
+                        "submittedBy": "glakshman (IAM) <itsupport@kitchenbrains.com>"
+                    },
+                    {
+                        "body": "Hi Amazon Team,\n\nI have MariaDB RDS instance in AWS (N.Virgina), dbName : msmetadata. I was trying to connect into this RDS instance using MySQL client or jdbc using \"mysql -u<username> -p<pwd> -h<public-hostname|public-ip>\" it works. \n\nSame way when i was trying to connect to RDS instance using MicroStrategy ODBC it fails with access denied. \n\"Access denied for user 'msdataadmin'@'10.0.20.7' (using password: NO)\". \n\nIf i try to give grant permission from my user for 10.0.20.7 ip i am getting again below error.\nGRANT ALL ON *.* TO 'msdataadmin'@'10.0.20.7' IDENTIFIED BY 'pwd';\nFLUSH PRIVILEGES;\n\nError Code: 1045\nAccess denied for user 'msdataadmin'@'%' (using password: YES)\n\nDo you have any idea whats going on ? We use MySQL 5.3.6 unicode driver for ODBC.\n\nThanks,\nGubs\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-6c80a4658c5efa65",
+                        "timeCreated": "2016-06-14T13:56:41.000Z",
+                        "submittedBy": "glakshman (IAM) <itsupport@kitchenbrains.com>"
+                    }
+                ]
+            },
+            "ccEmailAddresses": [
+                "nnocerino@kitchenbrains.com"
+            ],
+            "timeCreated": "2016-06-14T13:56:41.000Z",
+            "caseId": "case-659149615316-muen-2016-6c80a4658c5efa65",
+            "severityCode": "urgent",
+            "language": "en",
+            "categoryCode": "database-issue",
+            "serviceCode": "amazon-relational-database-service-mariadb",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "1778379521",
+            "subject": "Access denied for user issue entering into RDS MariaDB instance"
+        },
+        {
+            "status": "resolved",
+            "recentCommunications": {
+                "communications": [
+                    {
+                        "body": "Please let us know if we resolved your issue: \n(If you will connect by federation, log in before following the link.)\n\nIf yes, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=yes&case=1781030381\nIf no, click here:\nhttp://aws-portal.amazon.com/gp/aws/html-forms-controller/contactus/AWS-PS-HMD-Survey?mailref=no&case=1781030381\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-e80e53f3622d3847",
+                        "timeCreated": "2016-06-16T21:41:58.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hi Gubs,\n\nThank you for contacting AWS Premium Support. My name is Ben and I will be happy to assist you today. I understand that you want to add an A record into the domain \"mysck.net\" for your ELB \"mswselbexternal-1898365471.us-east-1.elb.amazonaws.com\".\n\nIn compliance with security best practices, AWS engineers do not have the ability to update your records or work with your resources. However, I will be more than happy to guide you on updating the record in Route53.\n\nFirst, taking a look at your Route53 resources, I do not see any Hosted Zones under this account. If you have another account that uses this domain, please do create a ticket on that account for the best possible assistance. If you want to create the record on this account, then please do the following steps below.\n\n1) Go to the Route53 Hosted Zone at: https://console.aws.amazon.com/route53\n\n2) Select \"Get Started Now\" under DNS Management, and choose \"Create Hosted Zone\"\n\n3) In the Create Hosted Zone pane, enter \"mysck.net\" and click \"Create\"\n\n4) Choose the hosted zone you just created on the \"Hosted Zones\" page and click \"Create Record Set\".\n\n5) In the right panel, select \"Yes\" for Alias and in the box that next to Alias Target, look for the ELB \"mswselbexternal-1898365471.us-east-1.elb.amazonaws.com\" and hit \"Save Record Set\". Please note, you can change the routing policy or set up health evaluation as you need.\n\nThis public doc goes over creating record sets in details:\nhttp://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-creating.html\n\nPerforming the command \"whois msck.net\", I also see that the domain belongs to the third-party registrar \"NETWORK SOLUTIONS, LLC.\".\n\nYou will want to make sure that the name servers are propagating to the name servers in Route53, which are of type \"NS\". This has to be done at the domain provider's website.\n\nThis is the third-party documentation for Network Solutions:\nhttp://www.networksolutions.com/support/move-dns-to-a-new-server/\n\nPlease let me know if you have any questions or concerns.\n\nBest regards,\n\nBen\nAmazon Web Services\nWe value your feedback. Please rate my response using the link below.\n===================================================\n\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-e80e53f3622d3847",
+                        "timeCreated": "2016-06-16T21:01:32.000Z",
+                        "submittedBy": "Amazon Web Services"
+                    },
+                    {
+                        "body": "Hi Amazon Team,\n\nCan you please add the new DNS Name \"mswselbexternal-1898365471.us-east-1.elb.amazonaws.com (A Record)\" into mysck.net record ?\n\nThanks,\nGubs\n\n",
+                        "attachmentSet": [],
+                        "caseId": "case-659149615316-muen-2016-e80e53f3622d3847",
+                        "timeCreated": "2016-06-16T19:16:14.000Z",
+                        "submittedBy": "glakshman (IAM) <itsupport@kitchenbrains.com>"
+                    }
+                ]
+            },
+            "ccEmailAddresses": [
+                "nnocerino@kitchenbrains.com"
+            ],
+            "timeCreated": "2016-06-16T19:16:14.000Z",
+            "caseId": "case-659149615316-muen-2016-e80e53f3622d3847",
+            "severityCode": "high",
+            "language": "en",
+            "categoryCode": "other",
+            "serviceCode": "elastic-load-balancing",
+            "submittedBy": "itsupport@kitchenbrains.com",
+            "displayId": "1781030381",
+            "subject": "Add our new DNS Name into record"
+        }
+    ],
+    "nextToken": "AwIUvBR8xgc/AqRzxBmKr8Fgw6brUB5rmhox1JUANqnwfQiBpsXYTh9ttUAL6YqJ"
+}
