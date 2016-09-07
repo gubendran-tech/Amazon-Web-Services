@@ -1,0 +1,112 @@
+Build Repo Server using CLI
+--------------------------------
+aws ec2 run-instances --image-id ami-ecc256fb --count 1 --instance-type t2.medium --key-name imageproduction --security-group-ids sg-90bd2be8 --subnet-id subnet-774bf62f --private-ip-address <ip>
+
+Login into above instance use below command to download
+--------------------------------------------------------
+aws s3 cp s3://kb-sck-softwares/LaunchConfigurationScripts/installServiceMSWM.sh /opt/aws-s3/installServiceRepo.sh
+
+execute the script
+--------------------
+./installServiceRepo.sh
+
+
+Or below 
+
+#!/usr/bin/env bash
+ 
+OLD_HOSTNAME="$( hostname )"
+NEW_HOSTNAME="$1"
+if [ -z "$NEW_HOSTNAME" ]; then
+ echo -n "Please enter new hostname: "
+
+ read NEW_HOSTNAME < /dev/tty
+
+fi
+
+if [ -z "$NEW_HOSTNAME" ]; then
+ echo "Error: no hostname entered. Exiting."
+ exit 1
+fi
+ 
+echo "Changing hostname from $OLD_HOSTNAME to $NEW_HOSTNAME..."
+ 
+hostname "$NEW_HOSTNAME"
+
+sed -i "s/HOSTNAME=.*/HOSTNAME=$NEW_HOSTNAME/g" /etc/sysconfig/network
+
+if [ -n "$( grep "$OLD_HOSTNAME" /etc/hosts )" ]; then
+ sed -i "s/$OLD_HOSTNAME/$NEW_HOSTNAME/g" /etc/hosts
+else
+ echo -e "$( hostname -I | awk '{ print $1 }' )\t$NEW_HOSTNAME" >> /etc/hosts
+fi
+echo "Done."
+
+
+yum update
+yum install epel-release
+yum -y install httpd
+
+
+iptables -F
+iptables -A INPUT -p tcp --dport 8081 -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+service iptables save
+service iptables restart
+
+rsync -avh sckadmin@sckbuild.fastinc.com::staging/environment/nexus/* .
+
+rsync -avh sckadmin@sckbuild.fastinc.com::staging/environment/java8/installjdk* .
+
+bash installjdk*.sh
+
+tar xvzf nexus-*-bundle.tar.gz
+
+mv nexus-*/ /opt/
+
+mv sonatype-work*/ /opt/
+
+ln -s /opt/nexus-* /opt/nexus
+
+adduser nexus
+
+chown -R nexus:nexus /opt/nexus*
+chown -R nexus:nexus /opt/sonatype-work*
+
+/bin/cp /opt/nexus/bin/nexus /etc/init.d/
+
+sed -i '/^#NEXUS_HOME/s/^#//' /etc/init.d/nexus
+
+sed -i '/^#RUN_AS_USER/s/^#//' /etc/init.d/nexus
+
+sed -i 's/\(^NEXUS_HOME=\).*/\1"\/opt\/nexus"/' /etc/init.d/nexus 
+
+sed -i 's/\(^RUN_AS_USER=\).*/\1nexus/' /etc/init.d/nexus 
+
+chmod 755 /etc/init.d/nexus
+
+chown root /etc/init.d/nexus
+
+chkconfig --add nexus
+
+chkconfig --levels 345 nexus on
+
+service nexus start
+
+tail -f /opt/nexus/logs/wrapper.log
+
+
+
+<VirtualHost *:80>
+       ServerName repo1.mysck.internal
+       Redirect / /nexus
+       ProxyPass /nexus http://localhost:8081/nexus retry=0
+       ProxyPassReverse /nexus http://localhost:8081/nexus
+       ProxyPassReverse /nexus http://localhost:8081/nexus
+       ProxyPassReverseCookiePath / /nexus
+</VirtualHost>
+
+/usr/sbin/setsebool -P httpd_can_network_connect 1
+
+service httpd restart

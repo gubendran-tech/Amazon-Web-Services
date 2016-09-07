@@ -1,0 +1,56 @@
+Build WWW using CLI
+--------------------
+Login into mail jump server and connect to staging 'ssh awscli' machine
+cd /opt
+aws ec2 run-instances --image-id ami-f6498696 --count 1 --instance-type t2.small --key-name imagestaging --security-group-ids sg-b4d8e2d2 --subnet-id subnet-48634511 --private-ip-address 10.0.21.4
+
+Login into above created instance use below command to download executable file for WWW Install
+-----------------------------------------------------------------------------------------------
+Update ~/.bashrc with your amazon credentials
+aws s3 cp s3://kb-sck-softwares/LaunchConfigurationScripts/installWWW.sh /opt/installWWW.sh
+
+execute the script
+--------------------
+cd /opt
+./installWWW.sh
+
+
+Build APIServer using CLI
+--------------------------
+Login into mail jump server and connect to staging 'ssh awscli' machine
+cd /opt
+aws ec2 run-instances --image-id ami-f6498696 --count 1 --instance-type t2.small --key-name imagestaging --security-group-ids sg-7efd5319 --subnet-id subnet-48634511 --private-ip-address 10.0.21.5
+
+Login into above created instance use below command to download executable file for APIServer Install
+------------------------------------------------------------------------------------------------------
+aws s3 cp s3://kb-sck-softwares/LaunchConfigurationScripts/installAPIWildfly.sh /opt/installAPIWildfly.sh
+
+execute the script
+--------------------
+cd /opt
+./installAPIWildfly.sh
+
+Build Repo using CLI 
+--------------------
+aws ec2 run-instances --image-id ami-f6498696 --count 1 --instance-type t2.small --key-name imagestaging --security-group-ids sg-b16593de --subnet-id subnet-4374dd1 --private-ip-address 10.0.11.6
+
+Login into above instance use below command to download
+--------------------------------------------------------
+aws s3 cp s3://kb-sck-softwares/LaunchConfigurationScripts/installServiceRepo.sh /opt/installServiceRepo.sh
+
+execute the script
+--------------------
+./installServiceRepo.sh
+
+Build MSTR WebServer using CLI
+-------------------------------
+aws ec2 run-instances --image-id ami-f6498696 --count 1 --instance-type t2.medium --key-name imagestaging --security-group-ids sg-9824a1fe --subnet-id subnet-4374dd1 --private-ip-address 10.0.11.7
+
+Login into above instance use below command to download
+--------------------------------------------------------
+aws s3 cp s3://kb-sck-softwares/LaunchConfigurationScripts/installServiceMSWM.sh /opt/installServiceMSWM.sh
+
+execute the script
+--------------------
+cd /opt
+./installServiceMSWM.sh

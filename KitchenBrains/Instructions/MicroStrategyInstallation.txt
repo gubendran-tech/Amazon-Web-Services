@@ -1,0 +1,282 @@
+Setting up a sample stack
+1. Creating a stack named "My Sample Stack (Linux)" 2. Setting the Chef cookbook repository of the stack 3. Creating a layer named "Node.js App Server" in the stack 4. Assigning a recipe to the deploy lifecycle event in the layer 5. Adding an instance to the layer
+
+Security Group
+----------------
+1) We need to cleanup the security group and identify the ports and application. So, every server have their own security group
+
+ntp udp 123
+mail tcp 587
+https 443
+http 80
+ALL ICMP Ping
+MySQL tcp 3306
+
+Modifications
+--------------
+Install mlocate, vim, telnet
+add alias in .bashrc for vim 
+alias vi="vim"
+# For aws
+export PATH="$PATH:/usr/local/bin"
+
+remove /aws
+add scripts folder in /opt
+
+Create CentOS Instance 
+---------------------------
+1) Create an Amazon Instance using centOS 6.* from the AMI MarketPlace.
+2) The volume you created with 64G or 72G might not be assigned to root as boot partition only 8G would have been allotted. (Bug in centOS 6 and it will work good in centOS 7.*)
+3) Create secondary instance centOS 6.* 8G volume for root from marketplace. Stop the secondary instance.
+4) Detach the volume from the primary instance you created upon stop and attach to the secondary instance.
+5) Start the secondary instance and you will see 2 bootable instance in `lsblk`. Do partition on primary instance volume attached in secondary. Follow http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/storage_expand_partition.html
+6) Make the volume / partition also bootable upon resize.
+7) Stop the secondary instance. Detach the primary instance partitioned volume 
+8) Attach the volume detached into primary instance with the same name as /dev/sda1 (mostly)
+9) Start the primary instance and you will see the volume and partition (df -h) full space. Take the volume snapshot. So, you can create volume from snapshot and attach to new instances going forward. 
+10) Once you login into instance using *.pem file open "vi /etc/ssh/sshd_config => change 'PasswordAuthentication yes'". So, using your user created you could login without *.pem file. 
+11) Update "vi /etc/sysconfig/network" the hostname. Update /etc/hosts and map the private ip and hostname and add other instances hostnames if required.
+12) Restart /etc/init.d/network restart" and exit from the console and login back to see the updated hostname. 
+13) visudo update wheel ALL
+14) useradd glakshman; password glakshman; usermod -aG wheel glakshman
+
+Note : If the elasticIp is not accessible from any location, please verify securityGroup (Inbound), in security group make sure subnet ip's. Check the subnet and if the subnet has NAT. 
+
+Or Use centOS vm image using cli
+-----------------------------------
+aws ec2 run-instances --image-id ami-ecc256fb --count 1 --instance-type t2.medium --key-name imageproduction --security-group-ids sg-90bd2be8 --subnet-id subnet-774bf62f --private-ip-address 10.0.10.7
+
+
+MicroStrategy Installation in Linux (RHEL 6.x, centOS 6.x) (IntelligenceServer)
+--------------------------------------------------------------------------------
+MicroStrategy Manual : http://www2.microstrategy.com/producthelp/10/manuals/en/InstallationConfig.pdf
+Minimum software requirement in RAM 8G for MSIS Server
+
+yum -y install perl compat-libstdc++-*.i686 nss-pam-ldapd.i686 libstdc++-*.i686 libXp.x86_64 elfutils-devel.x86_64 elfutils-libelf-devel.x86_64 krb5-libs.i686 nss-pam-ldapd.i686 ksh-*.x86_64 compat-libstdc++-*.i686 nss-pam-ldapd.i686 libstdc++-*.i686
+vi /etc/sysctl.conf (Make sure below settings updated as per installation guide)
+add below :
+kernel.sem = 250 32000 32 4096
+vm.max_map_count = 5242880
+
+sysctl -p (Should print and display the settings)
+/usr/local/bin/aws s3 cp s3://kb-sck-softwares/MicroStrategyWebAndMobile-10.3-wars/QueryReportingAnalysis_Linux.zip /opt/aws-s3/
+unzip QueryReportingAnalysis_Linux.zip
+chown -R root:root QueryReportingAnalysis_Linux
+cd QueryReportingAnalysis_Linux/
+chmod a+x jre/bin/*
+./setup.sh -console
+
+Deploy HotFix
+--------------
+1) Stop the services (IntelligenceServer service and WebServer service)
+2) Copy the /usr/local/bin/aws s3 cp s3://kb-sck-softwares/MicroStrategyWebAndMobile-10.3-wars/10.3-Patches/10.3.0200.0012_10.3.0_Hotfix_2_Linux.zip /opt/aws-s3/
+ and extract it
+3) cd QueryReportingAnalysis_Linux/
+4) chmod 755 setupHF.sh
+5) ./setupHF.sh -console
+
+Activate / update your license
+-------------------------------
+You should get license key from MicroStrategy. Update update it request for activation and provide activation key and activate. License key is required only for IntelligenceServer.
+cd /var/opt/MicroStrategy/bin
+./mstrlicmgr -console
+Option : 3
+
+ACTIVATION CODE: 63x9vv96z4gff7Pv29fBtvBjP3z8vvw3Bkgb765xppnnPBhz8ffzBBcqb3zwdw38m8732Fz6
+/var/opt/MicroStrategy/Activate.xml
+
+Configure ODBC driver (MySQL) in Linux for MicroStrategy 10.3
+--------------------------------------------------------------
+Download RPM from S3 bucket and install.
+/usr/local/bin/aws s3 cp s3://kb-sck-softwares/mysql-connector-odbc-5.3.6/mysql-connector-odbc-5.3.6-1.el6.x86_64.rpm /opt/aws-s3/
+
+# Install odbc first before rpm mysql connector odbc
+Dependent : yum install unixODBC
+ 
+rpm -ivh mysql-connector-odbc-5.3.6-1.el6.x86_64.rpm
+Note: Locate and make sure /usr/lib64/libmyodbc5w.so available
+
+Steps to create odbc.ini file 
+-----------------------------
+server: msismetadata.cesi7scjylxs.us-east-1.rds.amazonaws.com
+user: msdataadmin
+pwd: 905honeyspot
+db : msismetadata
+cd /var/opt/MicroStrategy/bin
+# Execute below command to create odbc.ini file
+./mstrconnectwiz -console 
+  Option : 15 (Mysql Connector / ODBC Driver)
+
+Note : odbc.ini.example had issues. So, use command './mstrconnectwiz -console' to get odbc.ini file created.
+
+MicroStrategy ODBC Test Tool
+-----------------------------
+cd /var/opt/MicroStrategy/bin
+./mstrtodbcx
+Syntax : .cn -d <DSNName> -u<DBUserName> -p<DBpassword> -h<HostName>
+
+.cn -d msmetadataMySQL -umsdataadmin -p905honeyspot -hmsismetadata.cwq9plxl6ryu.us-west-2.rds.amazonaws.com
+
+Example : .cn -d msmetadataMySQL -u msdataadmin -p 905honeyspot -hmsismetadata.cesi7scjylxs.us-east-1.rds.amazonaws.com
+.cn -d Sybase -u sck_dw -p rapido_dw -hdwdb.staging.mysck.net
+
+Steps to create metadata, history and other tables and configure intelligence server.
+-------------------------------------------------------------------------------------
+cd /var/opt/MicroStrategy/bin
+./mstrcfgwiz-editor
+
+Note : 
+a) Create Response file always. It appends to the existing file or create. (All default and say "Y" to execute file.
+b) Don't create statistics table and enterprise repository manager has it has bug in 10.1. Say 'N'.
+c) Use "Create and link server definition" while configuring intelligence Server (Bug in Linux Version)
+   SSL No. Same port (default). No projects to load or unload
+d) MicroStrategy Login Credentials (Username : Administrator password: enter)
+e) Create new Response*.ini file for configure intelligence server. Don't use same Response.ini file created for metadata tables.
+
+iptables -F
+iptables -A INPUT -p tcp --dport 34952 -j ACCEPT
+service iptables save
+service iptables restart
+
+Configure, Stop,Start and check the status of the intelligenceServer 
+----------------------------------------------------------
+
+cd /var/opt/MicroStrategy/bin
+./mstrsvr-configure (ServerDefinition Enter)
+
+cd /var/opt/MicroStrategy/bin
+
+Stop IntelligenceServer:
+./mstrctl -s IntelligenceServer stop
+
+Status of the IntelligenceServer
+./mstrctl -s IntelligenceServer gs 
+
+Start the IntelligenceServer
+./mstrctl -s IntelligenceServer start
+
+
+Install Sybase 12 client to support MicroStrategy in Sybase
+--------------------------------------------------------------
+/usr/local/bin/aws s3 cp s3://kb-sck-softwares/Sybase12/sqla1201linux3264.zip /opt/aws-s3/
+unzip sqla1201linux3264.zip
+cd sqlanywhere/
+./setup
+
+Options
+-------
+1 => Create new installation
+License key : QEBMA-F888A-AD715-01060-91683
+Components : DAtabases, Synchronization, Administration Tools (Only)
+LicenseType : CPU-based model
+Application Menu item : N
+Check for updates : N
+ReadMeFile : N
+
+
+Install the 64 bit client only
+Use the following path for the driver in odbc.ini: /opt/sqlanywhere12/lib64/libdbodbc12_r.so.1
+Modify /var/opt/MicroStrategy/odbc.ini (Update pwd)
+----------------------------------------------------
+[Sybase11Prod]
+Driver=/opt/sqlanywhere12/lib64/libdbodbc12_r.so.1
+Description=Sybase ASA ODBC Driver
+AutoStop=no
+CommLinks=tcpip{ip=54.209.73.236;port=49152}
+Compress=no
+Debug=no
+DriverUnicodeType=1
+DisableMultiRowFetch=no
+Integrated=no
+PWD=<pwd>
+ServerName=mysckdw-prod
+UID=sck_dw
+
+Load the Sybase driver by adding this line to the mstr start script in /etc/init.d
+ . /opt/sqlanywhere12/bin64/sa_config.sh
+ 
+Modify init script for mstr-root to load the driver for Sybase. 
+vi /etc/init.d/mstr-root\@2016-03-18T19\:55\:30-iserver-CastorServer
+In start() method add below line (Installed path)
+   . /opt/sqlanywhere12/bin64/sa_config.sh
+   
+Build MSTR WebServer using CLI
+--------------------------------
+aws ec2 run-instances --image-id ami-ecc256fb --count 1 --instance-type t2.medium --key-name imageproduction --security-group-ids sg-90bd2be8 --subnet-id subnet-774bf62f --private-ip-address <ip>
+
+Login into above instance use below command to download
+--------------------------------------------------------
+aws s3 cp s3://kb-sck-softwares/LaunchConfigurationScripts/installServiceMSWM.sh /opt/aws-s3/installServiceMSWM.sh
+
+execute the script
+--------------------
+./installServiceMSWM.sh
+
+Or below manualy steps
+   
+MicroStrategy Installation (WebServer and MobileServer) in Linux (RHEL 6.x, centOS 6.x) (Deploy war from msis)
+--------------------------------------------------------------------------------------------------------------
+cd /opt
+yum -y install libXp.x86_64 elfutils-devel.x86_64 elfutils-libelf-devel.x86_64 krb5-libs.i686 nss-pam-ldapd.i686 ksh-*.x86_64 compat-libstdc++-*.i686 nss-pam-ldapd.i686 libstdc++-*.i686 
+yum -y install httpd
+rsync -avc sckadmin@sckbuild.fastinc.com::staging/environment/java8/installjdk*.sh .
+bash installjdk1.8.sh
+rsync -avc sckadmin@sckbuild.fastinc.com::staging/environment/tomcat8/* .
+tar xzf apache-tomcat-8*.tar.gz
+mv apache-tomcat-8* /opt
+echo "export HISTSIZE=""" >> ~/.bashrc
+echo "export CATALINA_HOME=\"/opt/apache-tomcat-8.0.32\"" >> ~/.bashrc'
+echo "export JAVA_OPTS=$JAVA_OPTS -Xms512m -Xmx2048m" >> ~/.bashrc'
+source ~/.bashrc
+iptables -F
+iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+service iptables save
+service iptables restart
+
+Update Tomcat admin user
+--------------------------
+$CATALINA_HOME/conf/tomcat-users.xml
+<role rolename="admin"/>
+<user username="admin" password="mpe0vwsO21rJ2gBb5pCO" roles="admin"/>
+
+Deploy MicroStrategy WebServer & MobileServer 
+----------------------------------------------
+Copy the MicroStrategy.war from MicroStrategy Installation instance ($INSTALL_PATH/install/WebUniversal/)
+copy MicroStrategyMobile.war from MicroStrategy Installation instance ($INSTALL_PATH/install/Mobile/MobileServer)
+cp *.war $CATALINA_HOME/webapps/
+Modify $CATALINA_HOME/webapps/ROOT/index.html
+
+Note: connector 8009 AJP port should be enabled in $CATALINA_HOME/conf/server.xml
+
+Start, Stop Tomcat applicationServer
+------------------------------------
+Start tomcat:
+$CATALINA_HOME/bin/startup.sh
+
+Stop tomcat:
+$CATALINA_HOME/bin/shutdown.sh
+
+Configure apache:
+-----------------
+Update index.html in below location.
+vi /var/www/html/index.html 
+
+Proxy and ReverseProxy declaration in Apache to apache tomcat 
+vi /etc/httpd/conf.d/proxy_ajp.conf
+
+Update the SSL Configuration in below file. Make sure crt file exist in location
+vi /etc/httpd/conf.d/ssl.conf 
+
+Modify and update httpd.conf to enable 80 and 443.
+vi /etc/httpd/conf/httpd.conf
+
+Start, Stop Apache 
+------------------
+Stop apache Server :
+/etc/init.d/httpd stop
+
+Start apache Server :
+/etc/init.d/httpd start
+

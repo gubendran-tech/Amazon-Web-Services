@@ -1,0 +1,39 @@
+Update Mail Client point to mail server
+-----------------------------------------
+
+yum install postfix
+
+In /etc/postfix/main.cf
+
+Update relayhost = 10.0.0.12:587
+
+Reload postfix configuration
+-------------------------------
+postfix reload (Reload postfix configuration)
+
+How to check postfix Version
+----------------------------
+postconf -d | grep mail_version
+
+In Mail Server
+---------------
+yum install postfix
+
+In /etc/postfix/main.cf
+
+Update relayhost = 10.0.0.12:587 (Staging	)
+
+relayhost = email-smtp.us-east-1.amazonaws.com:587
+
+service postfix restart
+
+Test Mail Client
+-----------------
+$ mail gubs@jeanmartin.com
+subject : dfd
+body messageddf
+ctrl+D
+
+# Reload postfix 
+postfix reload
+

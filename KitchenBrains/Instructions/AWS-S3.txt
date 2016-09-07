@@ -1,0 +1,205 @@
+how-to-mount-s3-bucket-in-linux-ec2-instance
+---------------------------------------------
+
+centOS 6 doesn't have fuse 2.8.4 installed as s3fs required. So, install fuse
+------------------------------------------------------------------------------
+yum update all -y
+cd /opt
+curl https://s3-us-west-2.amazonaws.com/kb-sck-softwares/S3/fuse-2.9.6.tar.gz -O
+tar -xzvf fuse-2.9.6.tar.gz
+cd fuse-2.9.6
+sudo yum groupinstall "Development Tools"
+sudo yum install curl-devel libxml2-devel openssl-devel mailcap
+
+./configure --prefix=/usr
+make
+sudo make install
+sudo ldconfig
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig
+pkg-config --modversion fuse
+
+Install s3fs
+-------------
+cd /opt
+curl http://s3fs.googlecode.com/files/s3fs-1.63.tar.gz -O
+tar -xvzf s3fs-1.63.tar.gz
+cd s3fs-1.63
+./configure --prefix=/usr
+make
+sudo make install
+
+s3fs Make install error
+-------------------------
+If you get error: bits/c++allocator.h: No such file or directory above.
+Note : yum install libstdc++-devel
+
+vi /etc/passwd-s3fs (Copy itsupport access key and id)
+chmod 600 /etc/passwd-s3fs
+
+Mount Image directory in MSIS
+-------------------------------
+cd /var/opt/MicroStrategy/IntelligenceServer/images
+mkdir kb-mstr-images
+mkdir /tmp/cache # To be used as cache for S3FS
+chmod 777 /tmp/cache
+mkdir /var/opt/MicroStrategy/IntelligenceServer/images/kb-mstr-images # To mount to, use any path you want
+s3fs -o use_cache=/tmp/cache kb-mstr-images /var/opt/MicroStrategy/IntelligenceServer/images/kb-mstr-images # With mybucket is your bucket name
+
+Note: IF there is content in the folder that needs to be available in mounted s3 bucket. You need to create same folder manually in linux server after mounted.
+cd /var/opt/MicroStrategy/IntelligenceServer/images/kb-mstr-images
+mkdir kb-mstr-images
+
+Mount Image directory in MSWM
+-------------------------------
+cd /var/www/html/
+mkdir kb-mstr-images
+mkdir /tmp/cache # To be used as cache for S3FS
+chmod 777 /tmp/cache
+mkdir /var/www/html/kb-mstr-images # To mount to, use any path you want
+s3fs -o use_cache=/tmp/cache kb-mstr-images /var/www/html/kb-mstr-images # With mybucket is your bucket name
+s3fs -o use_cache=/tmp/cache checkit-images /var/www/html/checkit-images
+
+Note: IF there is content in the folder that needs to be available in mounted s3 bucket. You need to create same folder manually in linux server after mounted.
+
+https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html
+
+Granting Read-Only Permission to an Anonymous User (Worked)
+---------------------------------------------------
+GetObject 
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "AddPerm",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::checkit-images/*"
+		}
+	]
+}
+
+Restricting Access to Specific IP Addresses (Not working)
+---------------------------------------------------------
+{
+  "Version": "2012-10-17",
+  "Id": "S3PolicyId1",
+  "Statement": [
+    {
+      "Sid": "IPAllow",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": "arn:aws:s3:::checkit-images/*",
+      "Condition": {
+         "IpAddress": {"aws:SourceIp": "52.32.20.225/24"},
+         "NotIpAddress": {"aws:SourceIp": "52.32.20.225/32"} 
+      } 
+    } 
+  ]
+}
+
+Restricting Access to a Specific HTTP Referrer (Working)
+---------------------------------------------------------
+{
+   "Version": "2012-10-17",
+   "Id": "http referer policy example",
+   "Statement": [
+     {
+       "Sid": "Allow get requests referred by www.example.com and example.com.",
+       "Effect": "Allow",
+       "Principal": "*",
+       "Action": "s3:GetObject",
+       "Resource": "arn:aws:s3:::checkit-images/*",
+       "Condition": {
+         "StringLike": {"aws:Referer": ["https://vuestaging.mysck.net/*","https://www.vuestaging.mysck.net/*"]}
+       }
+     },
+      {
+        "Sid": "Explicit deny to ensure requests are allowed only from specific referer.",
+        "Effect": "Deny",
+        "Principal": "*",
+        "Action": "s3:*",
+        "Resource": "arn:aws:s3:::checkit-images/*",
+        "Condition": {
+          "StringNotLike": {"aws:Referer": ["https://vuestaging.mysck.net/*","https://www.vuestaging.mysck.net/*"]}
+        }
+      }
+   ]
+}
+
+Make sure the browsers you use include the http referer header in the request.
+
+
+{
+	"Version": "2012-10-17",
+	"Id": "http referer policy example",
+	"Statement": [
+		{
+			"Sid": "Allow get requests referred by www.example.com and example.com.",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::checkit-images/*",
+			"Condition": {
+				"StringLike": {
+					"aws:Referer": [
+						"https://vuestaging.mysck.net/*",
+						"https://www.vuestaging.mysck.net/*"
+					]
+				}
+			}
+		},
+		{
+			"Sid": "Explicit deny to ensure requests are allowed only from specific referer.",
+			"Effect": "Deny",
+			"Principal": "*",
+			"Action": "s3:*",
+			"Resource": "arn:aws:s3:::checkit-images/*",
+			"Condition": {
+				"StringNotLike": {
+					"aws:Referer": [
+						"https://vuestaging.mysck.net/*",
+						"https://www.vuestaging.mysck.net/*"
+					]
+				}
+			}
+		}
+	]
+}
+
+Current Policy
+---------------
+{
+	"Version": "2012-10-17",
+	"Id": "http referer policy example",
+	"Statement": [
+		{
+			"Sid": "Allow get requests referred by www.example.com and example.com.",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::checkit-images/*",
+			"Condition": {
+				"StringLike": {
+					"aws:Referer": [
+						"https://vuestaging.mysck.net/*",
+						"https://www.vuestaging.mysck.net/*"
+					]
+				}
+			}
+		},
+		{
+			"Sid": "IPAllow",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "s3:*",
+			"Resource": "arn:aws:s3:::checkit-images/*",
+			"Condition": {
+				"IpAddress": {
+					"aws:SourceIp": "74.50.50.57/24"
+				}
+			}
+		}
+	]
+}

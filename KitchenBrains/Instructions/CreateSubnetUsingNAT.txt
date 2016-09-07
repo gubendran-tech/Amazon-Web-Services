@@ -1,0 +1,71 @@
+To create a NAT gateway
+---------------------------
+
+Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+
+In the navigation pane, choose NAT Gateways, Create NAT Gateway.
+
+In the dialog box, specify the subnet in which to create the NAT gateway, and select an Elastic IP address to associate with the NAT gateway. When you're done, choose Create a NAT Gateway.
+
+The NAT gateway displays in the console. After a few moments, its status changes to Available, after which it's ready for you to use.
+
+Note : Make sure you attach public subnet and elastic ip.
+
+What is public Subnet ?
+
+Subnet which you created will have RouteTable association with internet gateway.
+
+Route Tables for a NAT Device
+-------------------------------
+To enable instances in a private subnet to connect to the Internet, you can create a NAT gateway or launch a NAT instance in a public subnet, and then add a route for the private subnet that routes Internet traffic (0.0.0.0/0) to the NAT device. For more information, see NAT Gateways and NAT Instances.
+
+To create a custom route table
+-------------------------------
+Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+
+In the navigation pane, choose Route Tables.
+
+Choose Create Route Table.
+
+In the Create Route Table dialog box, you can optionally name your route table for Name tag. Doing so creates a tag with a key of Name and a value that you specify. Select your VPC for VPC, and then choose Yes, Create.
+
+Adding and Removing Routes from a Route Table (Attach the NAT / IG in the route association)
+---------------------------------------------------------------------------------------------
+You can add, delete, and modify routes in your route tables. You can only modify routes that you've added.
+
+To modify or add a route to a route table
+
+Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+
+In the navigation pane, choose Route Tables, and then select the route table.
+
+In the Routes tab, choose Edit.
+
+To modify an existing route, replace the destination CIDR block or a single IP address for Destination, and then select a target for Target. Choose Add another route, Save.
+
+To associate a route table with a subnet (Private Subnet)
+----------------------------------------------------------
+
+Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+
+In the navigation pane, choose Route Tables, and then select the route table.
+
+On the Subnet Associations tab, choose Edit.
+
+Select the Associate check box for the subnet to associate with the route table, and then choose Save.
+
+How to create private subnet (Means subnet with NAT gateway) ?
+---------------------------------------------------------------
+Once you create NAT Gateway, create subnet and attach route table association with nat gateway which you created. 
+
+
+Good Explaination from AWS Support to resolve the issue
+---------------------------------------------------------
+
+1) created NAT Gateway in Public Subnet
+2) Updated the route table to use the NAT Gateway
+3) Created a Private Subnet
+4) Associated the subnet with ROute table
+5) launched an instance in the private subnet
+6) From the Jumpbox, you were able to connect to Private instance
+7) You were able to access internet from this instance using NAT Gateway.
